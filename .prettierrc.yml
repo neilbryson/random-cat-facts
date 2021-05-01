@@ -1,0 +1,6 @@
+parser: typescript
+semi: true
+printWidth: 120
+trailingComma: all
+singleQuote: true
+endOfLine: lf
