@@ -19,4 +19,8 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-      - run: gh-pages -d build
+      - name: Deploy to GitHub pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: build
