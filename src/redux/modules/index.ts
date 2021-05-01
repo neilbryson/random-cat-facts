@@ -1,1 +1,5 @@
-export const reducers = {};
+import { facts } from './facts/reducers';
+
+export const reducers = {
+  facts,
+};

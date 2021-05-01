@@ -1,4 +1,4 @@
-# ts-react-starter
+# random-cat-facts
 
 Starter template based on [Create React App](https://github.com/facebook/create-react-app).
 
