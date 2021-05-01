@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { CatFact } from '../components/CatFact';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { getRandomFact } from '../redux/modules/facts/actions';
+import { getRandomFact, selectNextFact, selectPrevFact } from '../redux/modules/facts/actions';
 
 const Container = styled.div`
   display: flex;
@@ -14,8 +14,27 @@ const Container = styled.div`
   padding: 30px 0;
 `;
 
-const RequestFactButton = styled.button`
-  flex-grow: 0;
+const NavigationButton = styled.button`
+  border: none;
+  border-radius: 6px;
+  height: 36px;
+`;
+
+const RequestFactButton = styled(NavigationButton)`
+  margin-bottom: 10px;
+`;
+
+const PrevNextContainer = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+
+  > button {
+    flex: 1 1 auto;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const HomeView = (): ReactElement<HTMLDivElement> => {
@@ -40,10 +59,24 @@ export const HomeView = (): ReactElement<HTMLDivElement> => {
     dispatch(getRandomFact());
   }
 
+  function onClickPrevious(): void {
+    dispatch(selectPrevFact());
+  }
+
+  function onClickNext(): void {
+    dispatch(selectNextFact());
+  }
+
   return (
     <Container>
-      {renderFact()}
       <RequestFactButton onClick={onClickRequest}>Request random fact</RequestFactButton>
+      {factIds.length > 2 && (
+        <PrevNextContainer>
+          <NavigationButton onClick={onClickPrevious}>Select previous fact</NavigationButton>
+          <NavigationButton onClick={onClickNext}>Select next fact</NavigationButton>
+        </PrevNextContainer>
+      )}
+      {renderFact()}
     </Container>
   );
 };
