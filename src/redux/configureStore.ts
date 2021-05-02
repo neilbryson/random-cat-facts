@@ -7,7 +7,9 @@ import { reducers } from './modules';
 import { routesMap } from './routing/routesMap';
 import { rootSaga } from './saga';
 
-const { enhancer, middleware, reducer } = connectRoutes(routesMap, {});
+const { enhancer, middleware, reducer } = connectRoutes(routesMap, {
+  basename: process.env.PUBLIC_URL || '/',
+});
 const rootReducer = combineReducers({ location: reducer, ...reducers });
 const sagaMiddleware = saga();
 export const store = createStore(
