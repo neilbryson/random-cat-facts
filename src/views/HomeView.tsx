@@ -39,6 +39,19 @@ const PrevNextContainer = styled.div`
   }
 `;
 
+const Reference = styled.span`
+  margin-top: auto;
+`;
+
+const Link = styled.a`
+  &,
+  &:hover,
+  &:active,
+  &:visited {
+    color: inherit;
+  }
+`;
+
 export const HomeView = (): ReactElement<HTMLDivElement> => {
   const { factIds, facts, selectedFact } = useTypedSelector((state) => ({
     factIds: state.facts.factIds,
@@ -79,6 +92,12 @@ export const HomeView = (): ReactElement<HTMLDivElement> => {
         </PrevNextContainer>
       )}
       {renderFact()}
+      <Reference>
+        Cat facts provided by{' '}
+        <Link href="https://cat-fact.herokuapp.com" rel="noreferrer noopener nofollow" target="_blank">
+          Cat Facts
+        </Link>
+      </Reference>
     </Container>
   );
 };
