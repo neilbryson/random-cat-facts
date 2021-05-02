@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
+  "homepage": "https://neilbryson.github.io/random-cat-facts",
   "dependencies": {
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
