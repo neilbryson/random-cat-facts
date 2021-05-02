@@ -17,6 +17,7 @@ const Header = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.app.header.BG_COLOR};
   padding: 0 20px;
+  flex-shrink: 0;
 `;
 
 const Title = styled.span`

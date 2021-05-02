@@ -22,11 +22,13 @@ const NavigationButton = styled.button`
 
 const RequestFactButton = styled(NavigationButton)`
   margin-bottom: 10px;
+  flex-shrink: 0;
 `;
 
 const PrevNextContainer = styled.div`
   display: flex;
   margin-bottom: 10px;
+  flex-shrink: 0;
 
   > button {
     flex: 1 1 auto;
